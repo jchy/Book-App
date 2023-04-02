@@ -7,7 +7,39 @@ Steps to run this project :
   git clone git@github.com:jchy/Book-App.git
 ```
 
-- Now navigate inside the client directory of this project by running the following command into your terminal:
+- Now navigate inside the Book-App directory by running the following command into your terminal:
+```js
+  cd Book-App
+```
+
+- Now navigate inside the server directory by running the following command into your terminal:
+```js
+  cd server
+```
+
+- Now we need to install the required packages to run the server side of this application i.e. backend. To do so run the following command in your terminal:
+```js
+  npm install
+  
+  OR
+  
+  yarn
+```
+
+- NOTE : Please make sure that your database (postgresql) is running locally on your machine(pc).
+
+- Now to start the server, run the following command into your terminal:
+```js
+  npm start
+  
+  OR 
+  
+  yarn start
+```
+
+- NOTE: Now we have started our backend successfully, let's start the client side also.
+
+- Navigate inside the client directory of this project by running the following command into your terminal:
 ```js
   cd client
 ```
