@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Previews from "./imageUploader";
 import { useState } from "react";
 import axios from "axios";
+import SuccessModal from "./SuccessModal";
 
 const UploadBook = () => {
   const [formState, setFormState] = useState<any>({
@@ -13,12 +14,13 @@ const UploadBook = () => {
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwVr_1M--pzyyxaCpVUa_v5gQ12ksdbGOFuruu4qevmuRd0ZeE6_Zo84-WxxQ4JKRsyANWDTXajp8&usqp=CAU&ec=48665701",
   });
+  const [isBookCreated, setIsBookCreated] = useState<boolean>(false);
 
   const createBook = async (payload: any) => {
     const book = await axios
       .post("http://localhost:5001/book", payload)
       .then((res) => {
-        console.log(res);
+        setIsBookCreated(true);
       })
       .catch((err) => {
         console.error(err);
@@ -39,7 +41,7 @@ const UploadBook = () => {
 
   return (
     <>
-      <div style={{ margin: "70px", fontFamily: "sans-serif" }}>
+      { isBookCreated ? <SuccessModal isBookCreated={isBookCreated}  setIsBookCreated={setIsBookCreated}/> : <div style={{ margin: "70px" }}>
         <Link
           to="/"
           style={{
@@ -191,7 +193,7 @@ const UploadBook = () => {
             </div>
           </form>
         </div>
-      </div>
+      </div>}
     </>
   );
 };
