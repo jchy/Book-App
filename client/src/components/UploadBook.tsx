@@ -16,7 +16,7 @@ const UploadBook = () => {
 
   const createBook = async (payload: any) => {
     const book = await axios
-      .post("http://localhost:5001/books", payload)
+      .post("http://localhost:5001/book", payload)
       .then((res) => {
         console.log(res);
       })

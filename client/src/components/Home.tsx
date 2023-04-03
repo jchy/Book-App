@@ -8,7 +8,7 @@ const Home = () => {
   useEffect(() => {
     const getBooks = async () => {
       const data = await axios
-        .get("http://localhost:5001/books")
+        .get("http://localhost:5001/book")
         .then((res) => res?.data)
         .catch((err) => {
           console.error(err);
